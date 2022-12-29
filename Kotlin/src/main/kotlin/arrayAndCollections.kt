@@ -30,4 +30,27 @@ fun main() {
     }
 
     println("reajuste do aumento: " + salarios.contentToString())
+
+    //aprendendo o operador ranges
+    val numeroPares = 0..100 step 2
+    for(numPar in numeroPares){
+        println("$numPar")
+    }
+    println()
+
+    val numerosParesReversos = 100 downTo 0 step 2
+    numerosParesReversos.forEach { println("$it") }
+
+    val intervalo = 1500.0..5000.0
+    val salario = 15500.0
+    if(salario in intervalo){
+        println("Você ainda não paga imposto de renda")
+    }else{
+        println("Você paga imposto de renda, pois seu salário é maior ou igual a '$5000.0' ")
+    }
+
+    val alfabeto = 'a'..'z'
+    val letra = 'K'.lowercaseChar()
+    println(letra in alfabeto)
+
 }
