@@ -18,4 +18,16 @@ fun main() {
     }
 
     println("A menor idade foi: $menorIdade")
+    val aumentoSalario = 1.1
+    val salarios = doubleArrayOf(10.0, 100.0, 1000.0, 10000.0)
+     for (indices in salarios.indices){
+         salarios[indices] = salarios[indices] *  aumentoSalario
+     }
+    println("Aumentando o salário: " + salarios.contentToString())
+
+    salarios.forEachIndexed { index, salario ->
+        salarios[index] = salario * aumentoSalario
+    }
+
+    println("reajuste do aumento: " + salarios.contentToString())
 }
