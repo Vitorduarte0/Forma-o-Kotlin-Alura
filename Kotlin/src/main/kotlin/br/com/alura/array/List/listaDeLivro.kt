@@ -19,8 +19,20 @@ fun main() {
         anoPublicado = 1859,
         editora = "Editora b"
     )
-    val biblioteca = listOf<Livro>(livro, livro2, livro1)
+    val livro3 = Livro(
+        titulo = "Sherlock Holmes 2 ",
+        autor = "Vinicius",
+        anoPublicado = 1861,
+        editora = "Editora b"
+    )
+    val biblioteca = listOf<Livro>(livro3, livro, livro2, livro1)
     biblioteca.sortedBy { it.titulo }.imprimeComMarcadores()
+
+    val listAutor = biblioteca
+        .filter { it.autor.startsWith("V") }
+        .sortedBy { it.anoPublicado }
+        .map { it.autor }
+    println(listAutor)
 }
 
 
