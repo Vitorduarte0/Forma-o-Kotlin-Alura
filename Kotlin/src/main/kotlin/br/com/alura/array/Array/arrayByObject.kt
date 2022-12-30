@@ -1,3 +1,4 @@
+package br.com.alura.array
 import java.math.BigDecimal
 import java.math.RoundingMode
 
@@ -16,6 +17,19 @@ fun main() {
     }
     println("O Gasto total foi: $gastoTotal")
 
+    val mediaTresMaioresSalarios = novoSalario
+        .sorted()
+        .takeLast(3)
+        .toTypedArray()
+        .media()
+        println("A media dos 3 maiores salário é: $mediaTresMaioresSalarios")
+
+    val tresMenoresSalarios = novoSalario.sorted().take(3).toTypedArray().media()
+    println("A media dos 3 menores salários é: $tresMenoresSalarios")
+
+    val notas = intArrayOf(7, 5, 8, 9)
+    val average = notas.sorted().take(3).average().toBigDecimal()
+    println(average.setScale(2, RoundingMode.UP))
 }
 
 private fun calculaAumentoRelatiovo(salario: BigDecimal, aumento: BigDecimal): BigDecimal{
@@ -26,22 +40,7 @@ private fun calculaAumentoRelatiovo(salario: BigDecimal, aumento: BigDecimal): B
     }
 }
 
-fun toBigDecimalArray(vararg valores: String): Array<BigDecimal> {
-    return Array(valores.size) { indice ->
-        valores[indice].toBigDecimal()
-    }
-}
 
-// Aqui iremos fazer uma extensions functions
-fun Array<BigDecimal>.somatoria(): BigDecimal {
-    /*
-        reduce -> Irá iterar no array e irá reduzir com uma determinada ação.
-        Nesse caso, irá retornar a soma de todos os elementos do array
-    */
-    return this.reduce { acumalador, valor ->
-            acumalador + valor
-    }
-}
 
 fun gastoInicial(salarios: Array<BigDecimal>): BigDecimal{
     return salarios.somatoria().setScale(2, RoundingMode.UP)
