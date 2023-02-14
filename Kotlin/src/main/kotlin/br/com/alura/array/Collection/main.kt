@@ -1,34 +1,28 @@
 package br.com.alura.array.Collection
 
 fun main() {
-	val assistiramCursoAndroid = listOf("Alex", "Vitor", "Vinicius")
-	val assistiramCursoKotlin = listOf("Ellen", "Vitinho", "Vitor")
+	// o mapa ele é uma abstração de uma chave e valor, por exemplo
+	// um pedido está associado uma preço
+	val pedido = 1
+	val preco = 30.0
+	val pedidos =mapOf(Pair(pedido, preco))
+	println(pedidos[pedido])
+	// Dado uma chave(PEDIDO) retorna um valor daquela determinada chave.
+	// Quando a chave for "pedido", o valor será o resultado da val preco.
 
-	val assistiramAmbos = mutableListOf<String>()
-	assistiramAmbos.addAll(assistiramCursoKotlin)
-	assistiramAmbos.addAll(assistiramCursoAndroid)
-	//println(assistiramAmbos.distinct())
-	//distinct retorna uma lista com elementos que não são duplicados
-	println("Junção das duas lista: $assistiramAmbos")
-	val assistiramCursoAndroidSet = setOf("Vitor", "Vinicius", "Ellen")
-	val assistiramCursoKotlinSet = setOf("Ellen", "Vitinho", "Vitor", "Alex")
-	val assistiramAmbosSet = assistiramCursoAndroidSet + assistiramCursoKotlinSet
-	println("Junção das duas listas, mas sem elementos duplicados: $assistiramAmbosSet")
-	// outra forma de se fazer seria com addAll
-	val novoAssistiramAmbos = mutableSetOf<String>()
-	novoAssistiramAmbos.addAll(assistiramCursoAndroidSet)
-	novoAssistiramAmbos.addAll(assistiramCursoKotlinSet)
-	novoAssistiramAmbos.add("Vitor")
-	//novoAssistiramAmbos.add("Cleitinho")
-	//novoAssistiramAmbos.add("Cleitinho")
-	println("Junção das duas listas, porem sem elementos duplicado: $novoAssistiramAmbos")
-	println(assistiramCursoAndroidSet + assistiramCursoKotlin)
-	println(assistiramCursoAndroidSet union assistiramCursoKotlinSet)
-	println(assistiramCursoAndroidSet subtract  assistiramCursoKotlinSet) //Vinicius não assistiu o curso de android
-	println(assistiramCursoKotlinSet subtract assistiramCursoAndroidSet) // Vitinho não assistiu o curso de lt
-	// o set basicamente tem a mesma ideia de conjuntos da matemática, logo é possivel ter alguns
-	// comportamentos, tais como: união, s
+	// no kotlin usa-se 'to' no lugar de 'pair'
+	val prato = "Delacruz"
+	val description = "Esse prato foi feito na inglaterra para homenagear o filoso delacruz na frase, bla, bla, bla"
+	val cardapioParis =
+		mapOf(prato to description, Pair("Leonardo", "Delicioso macarrão ao molho branco"),
+			  "Alejadinho" to "hamburguer de cheedar com bacon e cebola caramelizada"
+			)
 
-	println(assistiramCursoAndroidSet intersect assistiramCursoKotlinSet)
+
+	println(cardapioParis[prato])
+
+	for(pedidoCardapio in cardapioParis){
+		println("Para o prato '${pedidoCardapio.key}' temos a seguinte descrição: ${pedidoCardapio.value}")
+	}
 }
 
