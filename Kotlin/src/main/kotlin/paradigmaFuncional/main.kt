@@ -1,5 +1,7 @@
 package paradigmaFuncional
 
+import com.sun.jdi.DoubleValue
+
 fun main() {
     testaTipoFuncaoReferencia()
     testaTipoFuncaoClasse()
@@ -28,6 +30,23 @@ fun main() {
     }
 
     println(minhaFuncaoAnonima(1, 1))
+
+    val calculaBonificacao: (salario: Double) -> Double = lamdaSalario@{salario ->
+        if(salario > 1000){
+            return@lamdaSalario salario + 100.0
+        }
+        salario + 150.0
+    }
+    println(calculaBonificacao(1000.0))
+
+    val calculaBonificacaoAnonima: (salario: Double) -> Double = fun(salario): Double{
+        if(salario < 500){
+            return salario + 50.0
+        }
+        return salario + 25.0
+    }
+    println(calculaBonificacaoAnonima(450.0))
+
 
 }
 
